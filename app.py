@@ -19,6 +19,7 @@ class Producto(db.Model):
     precio = db.Column(db.Integer, nullable=False)
     imagen = db.Column(db.String(100), nullable=False)
     descripcion = db.Column(db.String(500), nullable=False)
+    talles = db.Column(db.String(50), nullable=False, default="S,M,L,XL")
 
 with app.app_context():
     db.create_all()
