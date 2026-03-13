@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Manila Concept — Admin Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+      .login { max-width: 400px; margin: 100px auto; padding: 0 40px; }
+      .login h2 { font-size: 24px; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 32px; text-align: center; }
+      .campo { display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
+      label { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #aaa; }
+      input { background-color: #1a1a1a; border: 1px solid #333; border-radius: 6px; padding: 12px 16px; color: #fff; font-size: 14px; font-family: Arial, sans-serif; width: 100%; }
+      input:focus { outline: none; border-color: #fff; }
+      button { width: 100%; padding: 16px; background-color: #fff; color: #000; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; letter-spacing: 2px; text-transform: uppercase; font-size: 14px; }
+      button:hover { background-color: #ccc; }
+      .error { background-color: #1a1a1a; border: 1px solid #e94560; border-radius: 6px; padding: 12px 16px; color: #e94560; font-size: 14px; margin-bottom: 24px; text-align: center; letter-spacing: 1px; }
+    </style>
+  </head>
+  <body>
+
+    <nav>
+      <span>Manila Concept — Admin</span>
+      <ul>
+        <li><a href="/">Ver tienda</a></li>
+      </ul>
+    </nav>
+
+    <section class="login">
+      <h2>Iniciar sesión</h2>
+
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% for category, message in messages %}
+          <div class="error">{{ message }}</div>
+        {% endfor %}
+      {% endwith %}
+
+      <form method="POST">
+        <div class="campo">
+          <label>Usuario</label>
+          <input type="text" name="username" placeholder="admin" autofocus>
+        </div>
+        <div class="campo">
+          <label>Contraseña</label>
+          <input type="password" name="password" placeholder="••••••••">
+        </div>
+        <button type="submit">Entrar</button>
+      </form>
+    </section>
+
+    <footer>
+      <p>© 2026 Manila Concept — Panel de administración</p>
+    </footer>
+
+  </body>
+</html>
