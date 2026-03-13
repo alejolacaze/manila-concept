@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Manila Concept — Admin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+
+    <nav>
+      <span>Manila Concept — Admin</span>
+      <ul>
+        <li><a href="/">Ver tienda</a></li>
+        <li><a href="/admin/agregar">+ Agregar producto</a></li>
+      </ul>
+    </nav>
+
+    <section style="padding: 40px; max-width: 900px; margin: 0 auto;">
+      <h2 style="letter-spacing: 4px; text-transform: uppercase; margin-bottom: 32px;">Panel de administración</h2>
+
+      <table style="width: 100%; border-collapse: collapse;">
+        <thead>
+          <tr style="border-bottom: 1px solid #333; color: #aaa; font-size: 12px; letter-spacing: 2px;">
+            <th style="padding: 12px; text-align: left;">PRODUCTO</th>
+            <th style="padding: 12px; text-align: left;">PRECIO</th>
+            <th style="padding: 12px; text-align: left;">IMAGEN</th>
+            <th style="padding: 12px; text-align: left;">ACCIONES</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for producto in productos %}
+          <tr style="border-bottom: 1px solid #1a1a1a;">
+            <td style="padding: 16px;">{{ producto.nombre }}</td>
+            <td style="padding: 16px;">${{ producto.precio }}</td>
+            <td style="padding: 16px;">{{ producto.imagen }}</td>
+            <td style="padding: 16px; display: flex; gap: 12px;">
+              <a href="/admin/editar/{{ producto.id }}" style="color: #fff; text-decoration: none; border: 1px solid #444; padding: 6px 12px; border-radius: 4px; font-size: 12px;">Editar</a>
+              <a href="/admin/eliminar/{{ producto.id }}" style="color: #e94560; text-decoration: none; border: 1px solid #e94560; padding: 6px 12px; border-radius: 4px; font-size: 12px;" onclick="return confirm('¿Seguro que querés eliminar este producto?')">Eliminar</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>
+
+    <footer>
+      <p>© 2026 Manila Concept — Panel de administración</p>
+    </footer>
+
+  </body>
+</html>

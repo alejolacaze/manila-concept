@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Manila Concept</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+
+    <nav>
+      <span>Manila Concept</span>
+      <ul>
+        <li><a href="/">Inicio</a></li>
+        <li><a href="#">Productos</a></li>
+        <li><a href="/contacto">Contacto</a></li>
+        <li><a href="/carrito">🛒 Carrito ({{ total_carrito }})</a></li>
+      </ul>
+    </nav>
+
+    <section class="hero">
+      <h2>Nueva Colección</h2>
+      <p>Para vos que estas re Manila</p>
+      <button>Ver todo</button>
+    </section>
+
+    <section class="productos">
+      {% for producto in productos %}
+      <div class="card">
+        <img src="{{ url_for('static', filename=producto.imagen) }}">
+        <div class="card-info">
+          <h3>{{ producto.nombre }}</h3>
+          <p class="precio">${{ producto.precio }}</p>
+          <a href="/agregar/{{ producto.id }}">
+  <button>Agregar al carrito</button>
+</a>
+          <a href="/producto/{{ producto.id }}">
+            <button class="btn-detalle">Ver detalles</button>
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </section>
+
+    <footer>
+      <p>© 2026 Manila Concept — All rights reserved</p>
+    </footer>
+
+  </body>
+</html>

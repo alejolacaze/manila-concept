@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Manila Concept — Contacto</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+
+      body {
+        background-color: #0f0f0f;
+        color: #ffffff;
+        font-family: Arial, sans-serif;
+      }
+
+      nav {
+        background-color: #111;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 40px;
+        border-bottom: 1px solid #333;
+      }
+      nav span { font-size: 20px; letter-spacing: 4px; text-transform: uppercase; }
+      nav ul { list-style: none; display: flex; gap: 32px; }
+      nav ul a { color: #aaa; text-decoration: none; font-size: 14px; }
+      nav ul a:hover { color: #fff; }
+
+      .contacto {
+        max-width: 600px;
+        margin: 60px auto;
+        padding: 0 40px;
+      }
+
+      .contacto h2 {
+        font-size: 28px;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+      }
+
+      .contacto p {
+        color: #888;
+        margin-bottom: 40px;
+        font-size: 14px;
+      }
+
+      .campo {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 24px;
+      }
+
+      label {
+        font-size: 12px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #aaa;
+      }
+
+      input, textarea {
+        background-color: #1a1a1a;
+        border: 1px solid #333;
+        border-radius: 6px;
+        padding: 12px 16px;
+        color: #fff;
+        font-size: 14px;
+        font-family: Arial, sans-serif;
+      }
+
+      input:focus, textarea:focus {
+        outline: none;
+        border-color: #fff;
+      }
+
+      textarea { height: 140px; resize: none; }
+
+      button {
+        width: 100%;
+        padding: 16px;
+        background-color: #fff;
+        color: #000;
+        border: none;
+        border-radius: 6px;
+        font-weight: bold;
+        cursor: pointer;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-size: 14px;
+      }
+
+      button:hover { background-color: #ccc; }
+
+      footer {
+        text-align: center;
+        padding: 24px;
+        color: #444;
+        font-size: 12px;
+        border-top: 1px solid #222;
+        letter-spacing: 2px;
+        margin-top: 60px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <nav>
+      <span>Manila Concept</span>
+      <ul>
+        <li><a href="Manila.html">Inicio</a></li>
+        <li><a href="#">Productos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="#">🛒 Carrito (0)</a></li>
+      </ul>
+    </nav>
+
+    <section class="contacto">
+      <h2>Contacto</h2>
+      <p>Dejanos tu mensaje y te respondemos a la brevedad.</p>
+
+      <div class="campo">
+        <label>Nombre</label>
+        <input type="text" placeholder="Tu nombre">
+      </div>
+
+      <div class="campo">
+        <label>Email</label>
+        <input type="email" placeholder="tu@email.com">
+      </div>
+
+      <div class="campo">
+        <label>Mensaje</label>
+        <textarea placeholder="Escribí tu consulta acá..."></textarea>
+      </div>
+
+      <button>Enviar mensaje</button>
+    </section>
+
+    <footer>
+      <p>© 2026 Manila Concept — All rights reserved</p>
+    </footer>
+
+  </body>
+</html>

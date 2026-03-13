@@ -1,0 +1,42 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background-color: #0f0f0f; color: #ffffff; font-family: Arial, sans-serif; }
+nav { background-color: #111; display: flex; justify-content: space-between; align-items: center; padding: 16px 40px; border-bottom: 1px solid #333; }
+nav span { font-size: 20px; letter-spacing: 4px; text-transform: uppercase; }
+nav ul { list-style: none; display: flex; gap: 32px; }
+nav ul a { color: #aaa; text-decoration: none; font-size: 14px; }
+nav ul a:hover { color: #fff; }
+.hero { text-align: center; padding: 100px 40px; background-color: #111; border-bottom: 1px solid #222; }
+.hero h2 { font-size: 48px; letter-spacing: 6px; text-transform: uppercase; margin-bottom: 16px; }
+.hero p { color: #aaa; font-size: 16px; margin-bottom: 32px; letter-spacing: 2px; }
+.hero button { padding: 14px 36px; background-color: #fff; color: #000; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; letter-spacing: 2px; text-transform: uppercase; }
+.hero button:hover { background-color: #ccc; }
+.productos { display: flex; gap: 24px; padding: 40px; justify-content: center; flex-wrap: wrap; }
+.card { background-color: #1a1a1a; border-radius: 12px; width: 220px; overflow: hidden; border: 1px solid #2a2a2a; }
+.card img { width: 100%; height: 220px; object-fit: cover; }
+.card-info { padding: 16px; }
+.card-info h3 { font-size: 16px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+.card-info .precio { color: #aaaaaa; font-size: 14px; margin-bottom: 16px; }
+.card-info button { width: 100%; padding: 10px; background-color: #ffffff; color: #000000; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; letter-spacing: 1px; }
+.card-info button:hover { background-color: #cccccc; }
+.btn-detalle { width: 100%; padding: 10px; background-color: transparent; color: #ffffff; border: 1px solid #444; border-radius: 6px; font-weight: bold; cursor: pointer; letter-spacing: 1px; margin-top: 8px; }
+.btn-detalle:hover { border-color: #fff; }
+footer { text-align: center; padding: 24px; color: #444; font-size: 12px; border-top: 1px solid #222; letter-spacing: 2px; }
+.detalle {
+  display: flex;
+  gap: 60px;
+  padding: 60px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.detalle img { width: 400px; border-radius: 12px; object-fit: cover; }
+.info { display: flex; flex-direction: column; gap: 20px; padding-top: 20px; }
+.info h2 { font-size: 28px; letter-spacing: 4px; text-transform: uppercase; }
+.info .precio { font-size: 24px; color: #aaa; }
+.info p { color: #888; line-height: 1.8; font-size: 14px; }
+.talles { display: flex; gap: 12px; }
+.talle { padding: 10px 16px; border: 1px solid #444; border-radius: 6px; cursor: pointer; font-size: 14px; }
+.talle:hover { border-color: #fff; }
+.info button { padding: 16px; background-color: #fff; color: #000; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; letter-spacing: 2px; text-transform: uppercase; font-size: 14px; }
+.info button:hover { background-color: #ccc; }
+.volver { display: inline-block; margin: 30px 60px; color: #aaa; text-decoration: none; font-size: 14px; letter-spacing: 1px; }
+.volver:hover { color: #fff; }

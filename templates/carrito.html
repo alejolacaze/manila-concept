@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Manila Concept — Carrito</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+      .carrito { max-width: 700px; margin: 60px auto; padding: 0 40px; }
+      .carrito h2 { font-size: 24px; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 32px; }
+      .item { display: flex; align-items: center; gap: 20px; padding: 20px 0; border-bottom: 1px solid #1a1a1a; }
+      .item img { width: 80px; height: 80px; object-fit: cover; border-radius: 8px; }
+      .item-info { flex: 1; }
+      .item-info h3 { font-size: 14px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+      .item-info p { color: #aaa; font-size: 14px; }
+      .item-eliminar { color: #e94560; text-decoration: none; font-size: 12px; border: 1px solid #e94560; padding: 6px 12px; border-radius: 4px; }
+      .item-eliminar:hover { background-color: #e94560; color: #fff; }
+      .total { padding: 24px 0; font-size: 20px; text-align: right; letter-spacing: 2px; }
+      .acciones { display: flex; gap: 16px; justify-content: flex-end; margin-top: 16px; }
+      .btn-vaciar { padding: 12px 24px; background-color: transparent; color: #aaa; border: 1px solid #333; border-radius: 6px; cursor: pointer; font-size: 14px; text-decoration: none; }
+      .btn-comprar { padding: 12px 24px; background-color: #fff; color: #000; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; }
+      .btn-comprar:hover { background-color: #ccc; }
+      .vacio { text-align: center; color: #444; padding: 60px 0; font-size: 14px; letter-spacing: 2px; }
+    </style>
+  </head>
+  <body>
+
+    <nav>
+      <span>Manila Concept</span>
+      <ul>
+        <li><a href="/">Inicio</a></li>
+        <li><a href="#">Productos</a></li>
+        <li><a href="/contacto">Contacto</a></li>
+        <li><a href="/carrito">🛒 Carrito</a></li>
+      </ul>
+    </nav>
+
+    <section class="carrito">
+      <h2>Tu carrito</h2>
+
+      {% if productos %}
+        {% for producto in productos %}
+        <div class="item">
+          <img src="{{ url_for('static', filename=producto.imagen) }}">
+          <div class="item-info">
+            <h3>{{ producto.nombre }}</h3>
+            <p>${{ producto.precio }}</p>
+          </div>
+          <a class="item-eliminar" href="/eliminar-carrito/{{ loop.index0 }}">Eliminar</a>
+        </div>
+        {% endfor %}
+
+        <div class="total">
+          Total: ${{ total }}
+        </div>
+
+        <div class="acciones">
+          <a class="btn-vaciar" href="/vaciar-carrito">Vaciar carrito</a>
+          <a class="btn-comprar" href="#">Finalizar compra</a>
+        </div>
+
+      {% else %}
+        <div class="vacio">
+          <p>Tu carrito está vacío 🛒</p>
+          <br>
+          <a href="/" style="color: #fff;">Ver productos</a>
+        </div>
+      {% endif %}
+
+    </section>
+
+    <footer>
+      <p>© 2026 Manila Concept — All rights reserved</p>
+    </footer>
+
+  </body>
+</html>
