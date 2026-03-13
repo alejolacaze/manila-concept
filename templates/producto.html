@@ -3,6 +3,23 @@
   <head>
     <title>Manila Concept — {{ producto.nombre }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+      .detalle { display: flex; gap: 60px; padding: 60px; max-width: 1100px; margin: 0 auto; }
+      .detalle img { width: 420px; height: 500px; object-fit: cover; border-radius: 12px; flex-shrink: 0; }
+      .info { display: flex; flex-direction: column; gap: 20px; padding-top: 20px; flex: 1; }
+      .info h2 { font-size: 24px; letter-spacing: 4px; text-transform: uppercase; }
+      .info .precio { font-size: 22px; color: #aaa; }
+      .info p { color: #888; line-height: 1.8; font-size: 14px; }
+      .talles-titulo { font-size: 12px; letter-spacing: 2px; color: #aaa; text-transform: uppercase; }
+      .talles { display: flex; gap: 12px; flex-wrap: wrap; }
+      .talle { padding: 10px 16px; border: 1px solid #444; border-radius: 6px; cursor: pointer; font-size: 14px; background: transparent; color: #fff; }
+      .talle:hover, .talle.seleccionado { border-color: #fff; background-color: #fff; color: #000; }
+      .btn-agregar { padding: 16px; background-color: #fff; color: #000; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; letter-spacing: 2px; text-transform: uppercase; font-size: 14px; width: 100%; }
+      .btn-agregar:hover { background-color: #ccc; }
+      .alerta-talle { display: none; color: #e94560; font-size: 13px; letter-spacing: 1px; }
+      .volver { display: inline-block; margin: 30px 60px; color: #aaa; text-decoration: none; font-size: 14px; letter-spacing: 1px; }
+      .volver:hover { color: #fff; }
+    </style>
   </head>
   <body>
 
@@ -10,9 +27,9 @@
       <span>Manila Concept</span>
       <ul>
         <li><a href="/">Inicio</a></li>
-        <li><a href="#">Productos</a></li>
+        <li><a href="/#productos">Productos</a></li>
         <li><a href="/contacto">Contacto</a></li>
-        <li><a href="#">🛒 Carrito (0)</a></li>
+        <li><a href="/carrito">🛒 Carrito ({{ total_carrito }})</a></li>
       </ul>
     </nav>
 
@@ -20,23 +37,49 @@
 
     <section class="detalle">
       <img src="{{ url_for('static', filename=producto.imagen) }}">
+
       <div class="info">
         <h2>{{ producto.nombre }}</h2>
         <p class="precio">${{ producto.precio }}</p>
         <p>{{ producto.descripcion }}</p>
+
+        <p class="talles-titulo">Seleccioná un talle:</p>
         <div class="talles">
-          <div class="talle">S</div>
-          <div class="talle">M</div>
-          <div class="talle">L</div>
-          <div class="talle">XL</div>
+          {% for talle in talles %}
+          <button class="talle" onclick="seleccionarTalle(this, '{{ talle }}')">{{ talle }}</button>
+          {% endfor %}
         </div>
-        <button>Agregar al carrito</button>
+
+        <p class="alerta-talle" id="alerta-talle">⚠️ Seleccioná un talle antes de continuar</p>
+
+        <form method="POST" id="form-carrito" action="/agregar/{{ producto.id }}">
+          <input type="hidden" name="talle" id="talle-input" value="">
+          <button type="submit" class="btn-agregar" onclick="return validarTalle()">Agregar al carrito</button>
+        </form>
       </div>
     </section>
 
     <footer>
       <p>© 2026 Manila Concept — All rights reserved</p>
     </footer>
+
+    <script>
+      function seleccionarTalle(btn, talle) {
+        document.querySelectorAll(".talle").forEach(b => b.classList.remove("seleccionado"));
+        btn.classList.add("seleccionado");
+        document.getElementById("talle-input").value = talle;
+        document.getElementById("alerta-talle").style.display = "none";
+      }
+
+      function validarTalle() {
+        const talle = document.getElementById("talle-input").value;
+        if (!talle) {
+          document.getElementById("alerta-talle").style.display = "block";
+          return false;
+        }
+        return true;
+      }
+    </script>
 
   </body>
 </html>
