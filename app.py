@@ -33,6 +33,7 @@ class Producto(db.Model):
  
  
 with app.app_context():
+    db.drop_all()
     db.create_all()
     if Producto.query.count() == 0:
         productos_iniciales = [
