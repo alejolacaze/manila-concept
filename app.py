@@ -25,10 +25,10 @@ with app.app_context():
     db.create_all()
     if Producto.query.count() == 0:
         productos_iniciales = [
-            Producto(nombre="Remera Boxy - Staff Members", precio=12000, imagen="boxy.jpeg", descripcion="Remera oversize de algodón 100%. Diseño exclusivo de la colección Staff Members."),
-            Producto(nombre="Short - Logo Bear", precio=28000, imagen="short.jpeg", descripcion="Short con logo bordado. Tela liviana ideal para el verano."),
-            Producto(nombre="Remera Oversize - Summer 2025", precio=35000, imagen="remera.jpeg", descripcion="Remera oversize de la colección verano 2025. Algodón premium."),
-            Producto(nombre="Musculosa Oversize - My Mum Says", precio=35000, imagen="musculosa.jpeg", descripcion="Musculosa oversize con estampado exclusivo My Mum Says."),
+            Producto(nombre="Remera Boxy - Staff Members", precio=47500, imagen="boxy.jpeg", descripcion="Remera corte boxy fit de actitu street, con calce amplio y caida pesada. Confeccionada en algodon premium, pensada para bancarse el uso diario."),
+            Producto(nombre="Short - Logo Bear", precio=38000, imagen="short.jpeg", descripcion="Short de diseño minimalista, confeccionado en tejido suave y resistente, ideal para uso diario y tiempo libre. Presenta corte comodo y moderno, con terminaciones prolijas y un bordado lateral distintivo de la marca Manila con ilustración Bear."),
+            Producto(nombre="Remera Oversize - Summer 2025", precio=45000, imagen="remera.jpeg", descripcion="Remera de corte oversize pensada para un outfit relajado y actual. Confeccionada en algodón 20.1 premium de tacto suave, ocn una combinación de estampas DTG y detalles bordados."),
+            Producto(nombre="Musculosa Oversize - My Mum Says", precio=36000, imagen="musculosa.jpeg", descripcion="Musculosa de corte relajado confeccionada en algodón suave 20.1 premium, pensada para maxima comodidad y un look descontracturado."),
         ]
         db.session.add_all(productos_iniciales)
         db.session.commit()
