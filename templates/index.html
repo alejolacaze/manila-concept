@@ -10,7 +10,7 @@
       <span>Manila Concept</span>
       <ul>
         <li><a href="/">Inicio</a></li>
-        <li><a href="#">Productos</a></li>
+        <li><a href="/#productos">Productos</a></li>
         <li><a href="/contacto">Contacto</a></li>
         <li><a href="/carrito">🛒 Carrito ({{ total_carrito }})</a></li>
       </ul>
@@ -18,11 +18,11 @@
 
     <section class="hero">
       <h2>Nueva Colección</h2>
-      <p>Para vos que estas re Manila</p>
-      <button>Ver todo</button>
+      <p>Streetwear para los que se animan</p>
+      <a href="#productos"><button>Ver todo</button></a>
     </section>
 
-    <section class="productos">
+    <section class="productos" id="productos">
       {% for producto in productos %}
       <div class="card">
         <img src="{{ url_for('static', filename=producto.imagen) }}">
@@ -30,8 +30,8 @@
           <h3>{{ producto.nombre }}</h3>
           <p class="precio">${{ producto.precio }}</p>
           <a href="/agregar/{{ producto.id }}">
-  <button>Agregar al carrito</button>
-</a>
+            <button>Agregar al carrito</button>
+          </a>
           <a href="/producto/{{ producto.id }}">
             <button class="btn-detalle">Ver detalles</button>
           </a>

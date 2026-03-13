@@ -47,9 +47,16 @@ def producto(id):
     carrito = session.get("carrito", [])
     return render_template("producto.html", producto=item, total_carrito=len(carrito))
 
-@app.route("/contacto")
+@app.route("/contacto", methods=["GET", "POST"])
 def contacto():
-    return render_template("contacto.html")
+    mensaje_enviado = False
+    if request.method == "POST":
+        nombre = request.form["nombre"]
+        email = request.form["email"]
+        mensaje = request.form["mensaje"]
+        print(f"Mensaje de {nombre} ({email}): {mensaje}")
+        mensaje_enviado = True
+    return render_template("contacto.html", mensaje_enviado=mensaje_enviado)
 
 # --- CARRITO ---
 
